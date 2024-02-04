@@ -35,7 +35,7 @@ export default function Login({ setToken }) {
         if (token.timestamp)
             alert("Login failed. Please try again.");
         else {
-            setToken(token.firstname + token.lastname + token.user_id);
+            setToken(token.firstname + "_" + token.lastname + "_" + token.user_id);
             setLoggedIn(true);
         }
     }

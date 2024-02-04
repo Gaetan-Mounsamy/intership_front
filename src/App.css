@@ -1,3 +1,16 @@
 .wrapper {
-  padding: 20px;
+  padding: 10px;
+  background-color: rgba(18,112,171,.8)!important;
+  /*background-color: #1270ab ;*/
+
+}
+
+h1{
+  color: white;
+}
+
+h2{
+  text-align: center;
+  color: white;
+
 }

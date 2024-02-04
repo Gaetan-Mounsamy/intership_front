@@ -1,0 +1,61 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #fff;;
+    color: #1f9cd8;
+    font-size: 1.2rem;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-item {
+    margin-right: 20px;
+}
+
+.navbar-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-item a {
+    color: #1f9cd8;
+    text-decoration: none;
+}
+
+.navbar-item a:hover {
+    text-decoration: underline;
+}
+
+.navbar-submenu {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.submenu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
