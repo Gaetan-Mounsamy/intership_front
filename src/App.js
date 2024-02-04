@@ -7,18 +7,7 @@ import Login from "./components/login/Login";
 import UseToken from './UseToken';
 
 
-function setToken(userToken) {
-    sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-    const tokenString = sessionStorage.getItem('token');
-    const userToken = JSON.parse(tokenString);
-    return userToken?.token
-}
 function App() {
-
-
 
     const { token, setToken } = UseToken();
     if(!token){
