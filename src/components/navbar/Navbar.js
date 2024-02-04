@@ -22,6 +22,18 @@ function Navbar() {
                         <li><Link to="/internship/consult">Consult Internship</Link></li>
                     </ul>
                 </li>
+                <li className="navbar-item navbar-submenu">
+                    <span>Report</span>
+                    <ul className="submenu">
+                        <li><Link to="/report/upload">Upload Report File</Link></li>
+                    </ul>
+                </li>
+                <li className="navbar-item navbar-submenu">
+                    <span>CdC</span>
+                    <ul className="submenu">
+                        <li><Link to="/cdc/upload">Upload CdC File</Link></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     );

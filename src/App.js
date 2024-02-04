@@ -5,6 +5,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import Preferences from './components/preferences/Preferences';
 import Login from "./components/login/Login";
 import AddInternship from './components/internship/AddInternship';
+import UploadReport from './components/report/UploadReport';
+import UploadCdC from './components/CdC/UploadCdC';
 import UseToken from './UseToken';
 import Navbar from './components/navbar/Navbar';
 import './App.css';
@@ -27,6 +29,8 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/preferences" element={<Preferences />} />
                   <Route path="/internship/add" element={<AddInternship />} />
+                  <Route path="/report/upload" element={<UploadReport/>} />
+                  <Route path="/cdc/upload" element={<UploadCdC/>} />
 
               </Routes>
           </Router>
