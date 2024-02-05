@@ -1,6 +1,5 @@
 import { useState } from "react";
 import './CdC.css';
-import { json } from "react-router-dom";
 
 export default function Form() {
   const [file, setFile] = useState("");

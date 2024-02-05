@@ -6,6 +6,7 @@ import Preferences from './components/preferences/Preferences';
 import Login from "./components/login/Login";
 import AddInternship from './components/internship/AddInternship';
 import ConsultInternship from './components/internship/ConsultInternship';
+import DetailInternship from './components/internship/DetailInternship';
 import UploadReport from './components/report/UploadReport';
 import UploadCdC from './components/CdC/UploadCdC';
 import UseToken from './UseToken';
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/preferences" element={<Preferences/>}/>
                     <Route path="/internship/add" element={<AddInternship/>}/>
                     <Route path="/internship/consult" element={<ConsultInternship/>}/>
+                    <Route path="/internship/consult/:internshipId" element={<DetailInternship/>}/>
                     <Route path="/report/upload" element={<UploadReport/>}/>
                     <Route path="/cdc/upload" element={<UploadCdC/>}/>
 
@@ -50,9 +52,4 @@ function App() {
 
     )
 }
-
-function StudientId(props) {
-    return <div>User ID: {props.match.params.userId}</div>;
-}
-
 export default App;

@@ -1,0 +1,47 @@
+.consult-internship-container {
+    margin: 20px;
+}
+
+.consult-internship-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.consult-internship-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.consult-internship-container th,
+.consult-internship-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.consult-internship-container th {
+    background-color: #f2f2f2;
+}
+
+.consult-internship-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.consult-internship-container tbody tr:hover {
+    background-color: #ddd;
+}
+
+.consult-internship-container button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+.consult-internship-container button:hover {
+    background-color: #0056b3;
+}

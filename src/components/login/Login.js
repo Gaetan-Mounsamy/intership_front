@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
-import { redirect  } from 'react-router-dom';
 
 
 async function loginUser(credentials) {
@@ -41,7 +40,7 @@ export default function Login({ setToken }) {
     }
 
     if (loggedIn) {
-        return <redirect to="/" />; // Redirect to HomePage
+        return <redirect to="/" />;
     }
 
     return(

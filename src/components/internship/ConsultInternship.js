@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './ConsultInternship.css';
+
 
 function ConsultInternship() {
     const [internships, setInternships] = useState([]);
@@ -6,6 +9,8 @@ function ConsultInternship() {
     useEffect(() => {
         fetchInternshipData();
     }, []);
+
+    const navigate = useNavigate();
 
     const fetchInternshipData = async () => {
         try {
@@ -26,20 +31,25 @@ function ConsultInternship() {
         }
     };
 
-    const handleDeleteInternship = async (internshipId) => {
+    const handleDeleteInternship = async (internship) => {
         try {
-            const response = await fetch("http://localhost:8080/internship/remove/"+internshipId, {
+            const response = await fetch("http://localhost:8080/internship/remove/"+internship.internship_id, {
                 method: 'DELETE'
             });
             if (response.ok) {
-                setInternships(internships.filter(internship => internship.id !== internshipId));
-                console.log('Internship deleted successfully');
+                setInternships(internships.filter(internship => internship.id !== internship.internship_id));
+                window.location.reload();
             } else {
                 console.error('Failed to delete internship');
             }
         } catch (error) {
             console.error('Error:', error);
         }
+    };
+
+    const handleOpenInternship = async (internship) => {
+        localStorage.setItem('internshipData', JSON.stringify(internship));
+        navigate(`/internship/consult/${internship.internship_id}`);
     };
 
     return (
@@ -59,8 +69,8 @@ function ConsultInternship() {
                         <td>{internship.title}</td>
                         <td>{internship.date.substring(0, 10)}</td>
                         <td>
-                            <button onClick={() => {/* Navigate to new page */}}>Open</button>
-                            <button onClick={() => handleDeleteInternship(internship.internship_id)}>Delete</button>
+                            <button onClick={() => {handleOpenInternship(internship)}}>Open</button>
+                            <button onClick={() => handleDeleteInternship(internship)}>Delete</button>
                         </td>
                     </tr>
                 ))}

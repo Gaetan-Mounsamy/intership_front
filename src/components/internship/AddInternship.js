@@ -31,10 +31,7 @@ function AddInternship() {
             });
         setDate('');
         setTitle('');
-
     }
-
-
 
     return (
         <div className="internshipContainer">
