@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Preferences from './components/preferences/Preferences';
 import Login from "./components/login/Login";
 import AddInternship from './components/internship/AddInternship';
+import ConsultInternship from './components/internship/ConsultInternship';
 import UploadReport from './components/report/UploadReport';
 import UploadCdC from './components/CdC/UploadCdC';
 import UseToken from './UseToken';
@@ -39,13 +40,19 @@ function App() {
                     <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path="/preferences" element={<Preferences/>}/>
                     <Route path="/internship/add" element={<AddInternship/>}/>
+                    <Route path="/internship/consult" element={<ConsultInternship/>}/>
                     <Route path="/report/upload" element={<UploadReport/>}/>
                     <Route path="/cdc/upload" element={<UploadCdC/>}/>
 
                 </Routes>
             </Router>
         </div>
-    );
+
+    )
+}
+
+function StudientId(props) {
+    return <div>User ID: {props.match.params.userId}</div>;
 }
 
 export default App;

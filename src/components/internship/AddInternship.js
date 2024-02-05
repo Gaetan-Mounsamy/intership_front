@@ -10,13 +10,14 @@ function AddInternship() {
         e.preventDefault();
 
         const tmp = localStorage.getItem('token');
-        const tmp2 = tmp.split('')
-
+        const numericPart = tmp.match(/\d+/);
+        const final = numericPart ? parseInt(numericPart[0]) : NaN;
         const internshipData = {
             date: date,
             title: title,
-            student: tmp2[3]
+            studentId: final
         };
+
         const response = await fetch("http://localhost:8080/internship/add", {
             method: 'POST',
             headers: {
@@ -28,19 +29,9 @@ function AddInternship() {
             .catch((error) => {
                 console.error('Error: ', error)
             });
+        setDate('');
+        setTitle('');
 
-        // Check if the request was successful
-        if (response.ok) {
-            // Handle success scenario (e.g., show a success message, reset form fields)
-            console.log('Internship added successfully');
-            console.log(response);
-
-            setDate('');
-            setTitle('');
-        } else {
-            // Handle error scenario (e.g., show an error message)
-            console.error('Failed to add internship');
-        }
     }
 
 
