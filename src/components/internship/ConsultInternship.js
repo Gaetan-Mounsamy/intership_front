@@ -20,7 +20,7 @@ function ConsultInternship() {
             const response = await fetch("http://localhost:8080/internship/getAllByStudent/"+studentId);
             if (response.ok) {
                 const data = await response.json();
-                setInternships(data); // Update state with fetched internship data
+                setInternships(data);
             } else {
                 console.error('Failed to fetch internship data');
             }
@@ -33,7 +33,7 @@ function ConsultInternship() {
     const handleDeleteInternship = async (internshipId) => {
         try {
             // Send delete request to backend to delete the internship
-            const response = await fetch("http://localhost:8080/internship/remove/${internshipId}", {
+            const response = await fetch("http://localhost:8080/internship/remove/"+internshipId, {
                 method: 'DELETE'
             });
             if (response.ok) {
@@ -61,12 +61,12 @@ function ConsultInternship() {
                 </thead>
                 <tbody>
                 {internships.map(internship => (
-                    <tr key={internship.id}>
+                    <tr key={internship.internship_id}>
                         <td>{internship.title}</td>
-                        <td>{internship.date}</td>
+                        <td>{internship.date.substring(0, 10)}</td>
                         <td>
                             <button onClick={() => {/* Navigate to new page */}}>Open</button>
-                            <button onClick={() => handleDeleteInternship(internship.id)}>Delete</button>
+                            <button onClick={() => handleDeleteInternship(internship.internship_id)}>Delete</button>
                         </td>
                     </tr>
                 ))}

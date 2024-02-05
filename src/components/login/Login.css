@@ -5,6 +5,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+
 }
 
 .login-wrapper h1 {
@@ -48,4 +49,8 @@
 
 .login-wrapper button:hover {
     background-color: #0056b3;
+}
+
+h3{
+    color: #0066cc ;
 }
