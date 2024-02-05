@@ -12,5 +12,8 @@ h1{
 h2{
   text-align: center;
   color: white;
+}
 
+.logOutButton{
+  right: 0;
 }

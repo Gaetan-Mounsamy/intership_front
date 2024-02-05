@@ -5,11 +5,45 @@ function AddInternship() {
     const [date, setDate] = useState('');
     const [title, setTitle] = useState('');
 
-    const handleSubmit = e => {
+
+    const handleSubmit = async e => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Submitted:', { date, title });
-    };
+
+        const tmp = localStorage.getItem('token');
+        const tmp2 = tmp.split('')
+
+        const internshipData = {
+            date: date,
+            title: title,
+            student: tmp2[3]
+        };
+        const response = await fetch("http://localhost:8080/internship/add", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(internshipData)
+        })
+            .then(data => data.json())
+            .catch((error) => {
+                console.error('Error: ', error)
+            });
+
+        // Check if the request was successful
+        if (response.ok) {
+            // Handle success scenario (e.g., show a success message, reset form fields)
+            console.log('Internship added successfully');
+            console.log(response);
+
+            setDate('');
+            setTitle('');
+        } else {
+            // Handle error scenario (e.g., show an error message)
+            console.error('Failed to add internship');
+        }
+    }
+
+
 
     return (
         <div className="internshipContainer">

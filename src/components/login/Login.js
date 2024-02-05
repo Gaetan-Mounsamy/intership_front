@@ -32,12 +32,12 @@ export default function Login({ setToken }) {
             username
         });
         //const token = await loginUser(loginData);
-        //if (token.timestamp)
-        //    alert("Login failed. Please try again.");
-        //else {
-            setToken('Kelly' + 'Brock' + '1');
+        if (token.timestamp)
+            alert("Login failed. Please try again.");
+        else {
+            setToken(token.firstname + "_" + token.lastname + "_" + token.user_id);
             setLoggedIn(true);
-        //}
+        }
     }
 
     if (loggedIn) {

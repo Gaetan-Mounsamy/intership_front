@@ -19,23 +19,33 @@ function App() {
     if(!token){
         return <Login setToken={setToken} />
     }
-    return (
-      <div className="wrapper">
-          <h1>Track my Internship</h1>
-          <Router>
-              <Navbar />
-              <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/preferences" element={<Preferences />} />
-                  <Route path="/internship/add" element={<AddInternship />} />
-                  <Route path="/report/upload" element={<UploadReport/>} />
-                  <Route path="/cdc/upload" element={<UploadCdC/>} />
 
-              </Routes>
-          </Router>
-      </div>
-  );
+    const handleLogout = () => {
+        // Perform logout actions here, such as clearing token from localStorage
+        localStorage.removeItem('token');
+        setToken(null);
+    };
+
+    // console.log(localStorage.getItem('token'))
+    return (
+        <div className="wrapper">
+            <h1>Track my Internship</h1>
+
+            <button className="logOutButton" onClick={handleLogout}>Logout</button>
+            <Router>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/preferences" element={<Preferences/>}/>
+                    <Route path="/internship/add" element={<AddInternship/>}/>
+                    <Route path="/report/upload" element={<UploadReport/>}/>
+                    <Route path="/cdc/upload" element={<UploadCdC/>}/>
+
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
