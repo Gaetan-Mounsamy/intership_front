@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 function ConsultInternship() {
-    // State to store internship data
     const [internships, setInternships] = useState([]);
 
-    // Fetch internship data from the backend
     useEffect(() => {
         fetchInternshipData();
     }, []);
 
-    // Function to fetch internship data
     const fetchInternshipData = async () => {
         try {
 
@@ -29,15 +26,12 @@ function ConsultInternship() {
         }
     };
 
-    // Function to handle delete internship action
     const handleDeleteInternship = async (internshipId) => {
         try {
-            // Send delete request to backend to delete the internship
             const response = await fetch("http://localhost:8080/internship/remove/"+internshipId, {
                 method: 'DELETE'
             });
             if (response.ok) {
-                // If deletion is successful, update the state to remove the deleted internship
                 setInternships(internships.filter(internship => internship.id !== internshipId));
                 console.log('Internship deleted successfully');
             } else {
