@@ -1,20 +1,33 @@
 .wrapper {
   padding: 10px;
-  background-color: rgba(18,112,171,.8)!important;
-  /*background-color: #1270ab ;*/
-
+  background-color: rgba(18, 112, 171, 0.8);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-h1{
+h1 {
   color: white;
+  text-align: center;
+
 }
 
-h2{
+h2 {
   text-align: center;
   color: white;
 }
 
-.logOutButton{
-  right: 0;
+.logOutButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 19px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   float: right;
+}
+
+.logOutButton:hover {
+  background-color: #d32f2f;
 }

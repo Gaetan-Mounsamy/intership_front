@@ -55,7 +55,6 @@ export default function Form() {
     }
   };
 
-  //You have to add an input field containing all the internship IDs in a slider (Then just copy paste the same thing in report)
   return (
     <>
     <p>Insert your file here:</p>

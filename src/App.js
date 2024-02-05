@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import Dashboard from './components/dashboard/Dashboard';
-import Preferences from './components/preferences/Preferences';
 import Login from "./components/login/Login";
 import AddInternship from './components/internship/AddInternship';
 import ConsultInternship from './components/internship/ConsultInternship';
@@ -14,8 +12,8 @@ import Navbar from './components/navbar/Navbar';
 import './App.css';
 
 
-
 function App() {
+
 
     const { token, setToken } = UseToken();
     if(!token){
@@ -23,9 +21,9 @@ function App() {
     }
 
     const handleLogout = () => {
-        // Perform logout actions here, such as clearing token from localStorage
         localStorage.removeItem('token');
         setToken(null);
+        localStorage.removeItem('internshipData');
     };
 
     // console.log(localStorage.getItem('token'))
@@ -38,14 +36,11 @@ function App() {
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/dashboard" element={<Dashboard/>}/>
-                    <Route path="/preferences" element={<Preferences/>}/>
                     <Route path="/internship/add" element={<AddInternship/>}/>
                     <Route path="/internship/consult" element={<ConsultInternship/>}/>
                     <Route path="/internship/consult/:internshipId" element={<DetailInternship/>}/>
                     <Route path="/report/upload" element={<UploadReport/>}/>
                     <Route path="/cdc/upload" element={<UploadCdC/>}/>
-
                 </Routes>
             </Router>
         </div>

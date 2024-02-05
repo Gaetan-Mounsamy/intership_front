@@ -31,6 +31,7 @@ function AddInternship() {
             });
         setDate('');
         setTitle('');
+        alert("Successful addition");
     }
 
     return (

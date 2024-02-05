@@ -9,12 +9,6 @@ function Navbar() {
                 <li className="navbar-item">
                     <Link to="/">Home</Link>
                 </li>
-                <li className="navbar-item">
-                    <Link to="/dashboard">Dashboard</Link>
-                </li>
-                <li className="navbar-item">
-                    <Link to="/preferences">Preferences</Link>
-                </li>
                 <li className="navbar-item navbar-submenu">
                     <span>Internship</span>
                     <ul className="submenu">

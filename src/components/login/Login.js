@@ -30,7 +30,6 @@ export default function Login({ setToken }) {
             password,
             username
         });
-        //const token = await loginUser(loginData);
         if (token.timestamp)
             alert("Login failed. Please try again.");
         else {
@@ -55,7 +54,7 @@ export default function Login({ setToken }) {
                         value={username}
                         onChange={e => {
                             setUserName(e.target.value);
-                            setUsernameError(false); // Reset error state when user changes input
+                            setUsernameError(false);
                         }}
                     />
                 </label>
@@ -67,7 +66,7 @@ export default function Login({ setToken }) {
                         value={password}
                         onChange={e => {
                             setPassword(e.target.value);
-                            setPasswordError(false); // Reset error state when user changes input
+                            setPasswordError(false);
                         }}
                     />
                 </label>

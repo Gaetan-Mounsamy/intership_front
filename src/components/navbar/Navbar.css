@@ -1,9 +1,8 @@
-/* Navbar.css */
-
 .navbar {
-    background-color: #fff;;
+    background-color: #fff;
     color: #1f9cd8;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding: 10px;
 }
 
 .navbar-menu {
@@ -11,10 +10,11 @@
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center;
 }
 
 .navbar-item {
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .navbar-item:last-child {
@@ -41,11 +41,15 @@
     display: none;
     background-color: #333;
     padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    font-size: 1.1rem;
 }
 
 .navbar-submenu:hover .submenu {
     display: block;
 }
+
 
 .submenu li {
     margin: 5px 0;
