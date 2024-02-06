@@ -31,24 +31,28 @@ function DetailInternship({ match }) {
     return (
         <div>
             <h2>Documents for Internship : {internshipData.title}</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Document Name</th>
-                    <th>Level of Confidenciality</th>
-                    <th>File Type</th>
-                </tr>
-                </thead>
-                <tbody>
-                {documents.map((document, index) => (
-                    <tr key={index}>
-                        <td>{document.document_name}</td>
-                        <td>{document.loc}</td>
-                        <td>{document.fileType}</td>
+            {internshipData.documentSet.length === 0 ? (
+                <h4>No document yet for this internship</h4>
+            ) : (
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Document Name</th>
+                        <th>Level of Confidentiality</th>
+                        <th>File Type</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {documents.map((document, index) => (
+                        <tr key={index}>
+                            <td>{document.document_name}</td>
+                            <td>{document.loc}</td>
+                            <td>{document.fileType}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 }
