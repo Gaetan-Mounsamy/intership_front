@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ConsultInternship.css';
+import BASE_URL from '../ApiConfig';
 
 
 function ConsultInternship() {
@@ -19,7 +20,7 @@ function ConsultInternship() {
             const numericPart = tmp.match(/\d+/);
             const studentId = numericPart ? parseInt(numericPart[0]) : NaN;
 
-            const response = await fetch("http://localhost:8080/internship/getAllByStudent/"+studentId);
+            const response = await fetch(`${BASE_URL}/internship/getAllByStudent/${studentId}`);
             if (response.ok) {
                 const data = await response.json();
                 setInternships(data);
@@ -33,14 +34,14 @@ function ConsultInternship() {
 
     const handleDeleteInternship = async (internship) => {
         try {
-            const response = await fetch("http://localhost:8080/internship/remove/"+internship.internship_id, {
+            const response = await fetch(`${BASE_URL}/internship/remove/${internship.internshipId}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
-                setInternships(internships.filter(internship => internship.id !== internship.internship_id));
+                setInternships(internships.filter(internship => internship.id !== internship.internshipId));
                 window.location.reload();
             } else {
-                console.error('Failed to delete internship');
+                alert('Failed to delete internship');
             }
         } catch (error) {
             console.error('Error:', error);
@@ -49,7 +50,7 @@ function ConsultInternship() {
 
     const handleOpenInternship = async (internship) => {
         localStorage.setItem('internshipData', JSON.stringify(internship));
-        navigate(`/internship/consult/${internship.internship_id}`);
+        navigate(`/internship/consult/${internship.internshipId}`);
     };
 
     return (
@@ -65,7 +66,7 @@ function ConsultInternship() {
                 </thead>
                 <tbody>
                 {internships.map(internship => (
-                    <tr key={internship.internship_id}>
+                    <tr key={internship.internshipId}>
                         <td>{internship.title}</td>
                         <td>{internship.date.substring(0, 10)}</td>
                         <td>

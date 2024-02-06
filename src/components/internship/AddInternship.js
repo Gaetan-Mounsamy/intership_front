@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './AddInternship.css';
+import BASE_URL from '../ApiConfig';
+
 
 function AddInternship() {
     const [date, setDate] = useState('');
@@ -18,7 +20,7 @@ function AddInternship() {
             studentId: final
         };
 
-        const response = await fetch("http://localhost:8080/internship/add", {
+        const response = await fetch(`${BASE_URL}/internship/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

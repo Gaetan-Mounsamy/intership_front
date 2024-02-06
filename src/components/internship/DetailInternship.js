@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './DetailInternship.css';
+import BASE_URL from '../ApiConfig';
+
 
 function DetailInternship({ match }) {
     const [documents, setDocuments] = useState([]);
@@ -14,7 +16,7 @@ function DetailInternship({ match }) {
 
     const fetchDocuments = async (internshipId) => {
         try {
-            const response = await fetch(`http://localhost:8080/document/getByInternshipID/${internshipId}`);
+            const response = await fetch(`${BASE_URL}/document/getByInternshipID/${internshipId}`);
             if (response.ok) {
                 const data = await response.json();
                 setDocuments(data);

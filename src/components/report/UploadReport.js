@@ -1,5 +1,7 @@
 import { useState } from "react";
 import './Report.css';
+import BASE_URL from '../ApiConfig';
+
 
 export default function Form() {
   const [file, setFile] = useState("");
@@ -10,7 +12,7 @@ export default function Form() {
     const data = new FormData();
     data.append("file", file);
 
-    fetch("http://localhost:8080/report/upload", {
+    fetch(`${BASE_URL}/report/upload`, {
       method: "POST",
       body: data,
     });

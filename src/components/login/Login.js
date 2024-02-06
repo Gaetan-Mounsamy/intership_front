@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+import BASE_URL from '../ApiConfig';
 
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:8080/user/login', {
+    return fetch(`${BASE_URL}/user/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

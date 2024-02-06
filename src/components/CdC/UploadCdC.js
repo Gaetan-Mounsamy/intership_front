@@ -1,5 +1,7 @@
 import { useState } from "react";
 import './CdC.css';
+import BASE_URL from '../ApiConfig';
+
 
 export default function Form() {
   const [file, setFile] = useState("");
@@ -16,7 +18,7 @@ export default function Form() {
     docuData.append("loc", loc);
     docuData.append("internshipId", fetchInternshipId());
 
-    fetch("http://localhost:8080/document/add", {
+    fetch(`${BASE_URL}/document/add`, {
       method: "POST",
       body: docuData,
     });
@@ -24,7 +26,7 @@ export default function Form() {
     const data = new FormData();
     data.append("file", file);
 
-    fetch("http://localhost:8080/cdC/upload", {
+    fetch(`${BASE_URL}/cdC/upload`, {
       method: "POST",
       body: data,
     });
@@ -41,11 +43,11 @@ export default function Form() {
         const numericPart = tmp.match(/\d+/);
         const studentId = numericPart ? parseInt(numericPart[0]) : NaN;
 
-        const response = await fetch("http://localhost:8080/internship/getAllByStudent/"+studentId);
+        const response = await fetch(`${BASE_URL}/internship/getAllByStudent/${studentId}`);
         if (response.ok) {
             const data = await response.json();
             let jsonData = JSON.parse(data);
-            let Id = jsonData["internship_id"]; //<- Plusieurs internship ID sont retournés
+            let Id = jsonData["internshipId"]; //<- Plusieurs internship ID sont retournés
             return Id;
         } else {
             console.error('Failed to fetch internship data');
